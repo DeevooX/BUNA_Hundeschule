@@ -93,4 +93,7 @@ section {
 .heroImage img {
   width: 100%;
 }
+header {
+  color: red;
+}
 /*-------------Hero STYLE END---------------*/
