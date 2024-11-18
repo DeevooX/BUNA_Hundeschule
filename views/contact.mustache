@@ -1,0 +1,98 @@
+{{> header}}
+<main class="main" id="main">
+    <!-- Header Section -->
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contactText">
+            <h2>Kontakt</h2>
+            <p>Bitte füllen Sie diesen Fragebogen aus. Durch diese Fragen kann ich mir einen groben Überblick über Ihren Hund schaffen.</p>
+        </div>
+
+
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+
+            <div class="inputContainer">
+                <label for="name">Name und Nachname</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="inputContainer">
+                <label for="phone">Telefonnummer</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="inputContainer">
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="inputContainer">
+                <label for="dog_name">Wie heisst Ihr Hund?</label>
+                <input type="text" id="dog_name" name="dog_name" required>
+            </div>
+            <div class="inputContainer">
+                <label for="dog_age">Wie alt ist Ihr Hund? (Alter oder Geburtsdatum)</label>
+                <input type="text" id="dog_age" name="dog_age" required>
+            </div>
+            <div class="inputContainer">
+                <label for="dog_breed">Welcher Rasse gehört Ihr Hund an?</label>
+                <input type="text" id="dog_breed" name="dog_breed" required>
+            </div>
+            <div class="inputContainer">
+                <label for="topics">Mit welchen Themen kommen Sie in die Hundeschule?</label>
+                <textarea id="topics" name="topics" required></textarea>
+            </div>
+
+            <div class="inputContainer">
+                <label for="good_traits">Welche drei Eigenschaften schätzen Sie an Ihrem Hund am meisten?</label>
+                <textarea id="good_traits" name="good_traits" required></textarea>
+            </div>
+            <div class="inputContainer">
+                <label for="bad_traits">Welche drei Eigenschaften stören Sie an Ihrem Hund am meisten?</label>
+                <textarea id="bad_traits" name="bad_traits" required></textarea>
+            </div>
+            <div class="inputContainer">
+                <label for="health_issues">Gibt es gesundheitliche Besonderheiten? Falls ja, welche?</label>
+                <textarea id="health_issues" name="health_issues"></textarea>
+            </div>
+            <div class="inputContainer">
+                <label for="hunting_interest">Zeigt Ihr Hund jagdliches Interesse? Falls ja, wie zeigt er es?</label>
+                <textarea id="hunting_interest" name="hunting_interest"></textarea>
+            </div>
+            <div class="inputContainer">
+
+                <label for="dog_social">Ist Ihr Hund grundsätzlich verträglich mit anderen Hunden? Falls nein, warum glauben Sie, dass es so ist?</label>
+                <textarea id="dog_social" name="dog_social"></textarea>
+            </div>
+
+            <div class="inputContainer">
+                <label for="people_issues">Hat Ihr Hund Probleme mit Menschen? Falls ja, welche?</label>
+                <textarea id="people_issues" name="people_issues"></textarea>
+            </div>
+
+            <div class="inputContainer">
+                <label for="people_issues">Hat Ihr Hund Probleme mit Menschen? Falls ja, welche?</label>
+                <textarea id="people_issues" name="people_issues"></textarea>
+            </div>
+
+            <div class="inputContainer">
+                <label for="training_status">Wie schätzen Sie den Trainingsstand Ihres Hundes ein?</label>
+                <textarea id="training_status" name="training_status"></textarea>
+            </div>
+
+            <div class="inputContainer">
+                <label for="training_history">Was wurde bisher in Bezug auf das Training gemacht, und wie wurde es durchgeführt?</label>
+                <textarea id="training_history" name="training_history"></textarea>
+            </div>
+
+            <div class="inputContainer">
+
+                <label for="additional_info">Gibt es sonst noch etwas, das Sie uns über Ihren Hund mitteilen möchten?</label>
+                <textarea id="additional_info" name="additional_info"></textarea>
+            </div>
+
+
+            <input type="hidden" name="_subject" value="Neue Kontaktanfrage von Buna Hundeschule">
+            <input type="hidden" name="_replyto" value="dillien.gutknecht@gmail.com">
+        </form>
+        <button type="submit" class="ctaButton">Nachricht senden</button>
+    </section>
+</main>
+{{> footer}}

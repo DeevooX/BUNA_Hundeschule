@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/burger.css">
+
+    <link
+            href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 </head>
 <body>
-<header>
-    <div class="logoContainer">
-        <img src="/images/buna_logo.PNG" alt="">
+<nav class="menu--left" role="navigation">
+    <div class="menuToggle">
+        <input type="checkbox"/>
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="menuItem">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Über mich</a></li>
+            <li><a href="documents.html">Dokumente</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
 
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="">Home</a>
-            </li>
-            <li>
-                <a href="">Blog</a>
-            </li>
-            <li>
-                <a href="">Buchen</a>
-            </li>
-
-            <li>
-                <a href="">Standort</a>
-            </li>
-            <li>
-                <a href="">Kurse</a>
-            </li>
-            <li>
-                <a href="login.mustache">Log In</a>
-            </li>
+            <li><a href="contact.html">Kontakt</a></li>
         </ul>
-    </nav>
-</header>
+    </div>
+</nav>
+<!-- Header Section -->
