@@ -3,47 +3,35 @@ const multer = require("multer");
 var router = express.Router();
 const upload = multer({ dest: "public/uploads/" });
 
-// Route for the home page (index)
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
+// Dashboard homepage
+router.get('/', async function(req, res, next) {
+  // Logic to fetch posts or other data
+  res.render('index', { posts: 'gfdfg' });
 });
 
-// Route for the About page
+// About page
 router.get('/about', (req, res) => {
   res.render('about', { title: 'About Us' });
 });
 
-// Route for Angebot (Offer)
+// Angebot page
 router.get('/angebot', (req, res) => {
   res.render('angebot', { title: 'Our Offers' });
 });
 
-// Route for the Contact page
+// Contact page
 router.get('/contact', (req, res) => {
   res.render('contact', { title: 'Contact Us' });
 });
 
-// Route for the Login page
-router.get('/login', (req, res) => {
-  res.render('login', { title: 'Login' });
-});
-
-// Route for the Register page
-router.get('/register', (req, res) => {
-  res.render('register', { title: 'Register' });
-});
-
-// Route for the Users page
-router.get('/users', (req, res) => {
-  res.render('users', { title: 'Users' });
-});
-
-// Catch-all route for errors
+// Catch-all error route
 router.get('*', (req, res) => {
   res.render('error', { title: 'Error', message: 'Page not found' });
 });
 
 module.exports = router;
+
+
 
 router.post('/delete', upload.none(), async function (req, res, next) {
   const user = await req.login.loggedInUser(req);
