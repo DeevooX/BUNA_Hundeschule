@@ -18,8 +18,11 @@ const meinprojekt_pool = new pg.Pool({
     password: 'D65WpuK1OkaCN5sDIdbSDef6wFBbYeD4',
     database: 'BUNA Hundeschule',
     port: 5432,
-    ssl: true
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
+
 
 
 const pool = mariadb.createPool({
@@ -30,7 +33,6 @@ const pool = mariadb.createPool({
   connectionLimit: 5
 });
 
-const pool2 = pg.Pool;
 
 
 var indexRouter = require('./routes/index');

@@ -2,8 +2,6 @@ var express = require('express');
 const multer = require("multer");
 var router = express.Router();
 const upload = multer({ dest: "public/uploads/" });
-const express = require('express');
-const router = express.Router();
 
 // Route for the home page (index)
 router.get('/', (req, res) => {

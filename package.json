@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build-css": "sass --watch public/scss:public/css",
-    "start": "concurrently \"npm run build-css\" \"nodemon ./bin/www --watch .\"",
+    "start": "nodemon ./bin/www --watch .",
     "prod": "node ./bin/www",
     "build": "sass public/scss:public/css"
   },
