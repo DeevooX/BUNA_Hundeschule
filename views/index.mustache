@@ -1,5 +1,22 @@
 {{> header}}
 
+<body>
+<nav class="menu--left" role="navigation">
+    <div class="menuToggle">
+        <input type="checkbox"/>
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="menuItem">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Über mich</a></li>
+            <li><a href="angebot.html">Angebot</a></li>
+
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Header Section -->
 <main id="main" class="main">
     <header class="header" id="header">
 
@@ -10,40 +27,57 @@
         <div class="hero-content">
             <div class="hero-background"></div>
             <div class="hero-text">
-                <h1 class="animate__animated animate__fadeInDown">Über <span>Mich</span></h1>
-
-
+                <h1 class="animate__animated animate__fadeInDown"><span>Buna Hundeschule</span></h1>
+                <p class="animate__animated animate__fadeIn">Deine Reise zum Aufbau einer lebenslangen Bindung mit deinem Hund beginnt hier. Entdecke unsere Dienstleistungen und siehst du, wie wir dir und deinem pelzigen Freund helfen können, eine bessere Beziehung aufzubauen.</p>
+                <a href="contact.html" class="cta-button animate__animated animate__fadeInUp">Jetzt Buchen!</a>
             </div>
         </div>
     </section>
 
     <section id="about" class="enhanced-about-section">
         <div class="about-intro">
-            <p class="about-description">My name is Natascha, and I am a trained medical assistant. In 2023, I completed my training as a dog trainer. For me, it was clear early on that I could not imagine a life without dogs. After getting my current dog, "Butch," I realized that I wanted to learn more about canine behavior to understand and support my pet in the best way possible. Now, I enjoy passing on my knowledge to help other dog owners build strong bonds with their loyal companions.</p>
+            <h2 class="about-title">Gemeinsames Kennenlernen, Individuelle Test-Situationen herstellen, um Motiv des Verhaltens herauszufinden, dann individuelles angepasstes Coaching. </h2>
+
+
         </div>
         <div class="about-highlight">
-            <img src="Asstes/dog_with_owner.jpg" alt="Natascha with her dog" class="about-photo">
+            <img src="Asstes/uebermich.png" alt="Natascha with her dog" class="about-photo">
         </div>
     </section>
     <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services-list">
-            <div class="service">
-                <h3>Basic Training Course</h3>
-                <p>Learn the essential commands with your dog to foster a solid foundation of obedience.</p>
-            </div>
-            <div class="service">
-                <h3>Advanced Agility Course</h3>
-                <p>Take your dog's agility to the next level with advanced techniques and commands.</p>
-            </div>
-            <div class="service">
-                <h3>Behavior Consult</h3>
-            </div>
-        </div>
-    </section>
+
 
 
     <!-- Contact Section -->
 </main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="logoContainer">
+            <img src="Asstes/logo_buna.PNG" alt="Buna Hundeschule Logo">
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="angebot.html">Dienstleistungen</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+
+            <a href="https://www.instagram.com/buna_hundeschule/"><img src="Asstes/instagram-logo-24.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('.main-navigation ul');
+        nav.classList.toggle('active');
+    }
+</script>
+
 {{> footer}}
+

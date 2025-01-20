@@ -1,13 +1,42 @@
-
-var mustacheExpress = require('mustache-express');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mustacheExpress = require('mustache-express');
+const sessions = require("express-session");
+const multer = require("multer");
+const upload = multer({ dest: "public/uploads/" });
+const bcrypt = require("bcrypt");
+const mariadb = require("mariadb");
+const pg = require("pg");
+require('dotenv').config()
+
+const meinprojekt_pool = new pg.Pool({
+    host: 'dpg-croj0nij1k6c739iaa30-a.frankfurt-postgres.render.com',
+    user: 'buna_hundeschule_user',
+    password: 'D65WpuK1OkaCN5sDIdbSDef6wFBbYeD4',
+    database: 'BUNA Hundeschule',
+    port: 5432,
+    ssl: true
+});
+
+
+const pool = mariadb.createPool({
+  host: process.env.MA_DB_HOST,
+  user: process.env.MA_DB_USER,
+  password: process.env.MA_DB_PASSWORD,
+  database: process.env.MA_DB_DATABASE,
+  connectionLimit: 5
+});
+
+const pool2 = pg.Pool;
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
+const {Login} = require("./model/login");
 
 var app = express();
 
@@ -20,10 +49,35 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use(
+    sessions({
+        secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+        saveUninitialized: true,
+        cookie: { maxAge: 86400000, secure: false },
+        resave: false
+    })
+);
+
+app.use((req, res, next) => {
+  req.pool = pool; // Der Pool wird der Anforderung hinzugefügt
+  req.meinprojekt_pool = meinprojekt_pool;
+  req.login = new Login(
+      "users",
+      ["email", "passwort"],
+      pool
+  );
+    res.locals.search = req.query.search || ""; // Default to an empty string if no search query is provided
+    req.upload = upload;
+  next();
+});
+
+app.use('/', loginRouter);
+app.use('/dashboard', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,26 +94,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-const Pool = require("pg").Pool;
-
-const pool = new Pool({
-  user: 'buna_hundeschule_user',
-  host: 'dpg-croj0nij1k6c739iaa30-a.frankfurt-postgres.render.com',
-  database: 'BUNA Hundeschule',
-  password: 'D65WpuK1OkaCN5sDIdbSDef6wFBbYeD4',
-  port: 5432,
-});
-
-app.use((req, res, next) => {
-  req.pool = pool;
-  req.login = new Login("users", ["email", "passwort"], pool);
-  next();
-});
-
-// Mount your router
-const routes = require('./routes/index'); // Path to the router file
-app.use('/', routes);
-
 
 module.exports = app;
-
